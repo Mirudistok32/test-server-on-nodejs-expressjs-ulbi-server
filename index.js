@@ -1,11 +1,14 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const authRouter = require("./authRouter");
+
 const PORT = process.env.PORT || 5000;
 
 const app = express();
 
 // Парсим json, который прилетает к нам в запросах
 app.use(express.json());
+app.use('/auth', authRouter)
 
 const start = async () => {
   try {
